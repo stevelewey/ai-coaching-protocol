@@ -4,269 +4,211 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proverbs AI Coaching Protocol — Light Based Leadership</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #1A1410;
-  --navy-mid:   #221c15;
-  --navy-light: #2c2419;
-  --navy-card:  #261f17;
+  --navy:       #1B2A4A;
+  --navy-deep:  #142038;
+  --navy-mid:   #24365c;
   --gold:       #C9A84C;
-  --gold-hi:    #dfc278;
-  --gold-lo:    #96771f;
+  --gold-hi:    #ddc17a;
+  --gold-lo:    #9c8033;
   --cream:      #FAF6EF;
-  --cream-dim:  #c8bfb0;
-  --cream-mute: #7a7268;
-  --rule:       rgba(201,168,76,0.18);
+  --cream-card: #FFFFFF;
+  --cream-line: #E7DFCF;
+  --ink:        #2E2820;
+  --ink-soft:   #5C5648;
+  --ink-mute:   #8A8272;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--navy);
-  color: var(--cream);
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  line-height: 1.65;
-  overflow-x: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 19px;
+  line-height: 1.7;
 }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
-  50%       { box-shadow: 0 0 32px 4px rgba(201,168,76,0.12); }
-}
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+h1, h2, h3, h4, .btn-cta, .eyebrow, .pill, footer .brand {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.fade-up { animation: fadeUp 0.7s ease both; }
-.fade-up-1 { animation-delay: 0.1s; }
-.fade-up-2 { animation-delay: 0.22s; }
-.fade-up-3 { animation-delay: 0.34s; }
-.fade-up-4 { animation-delay: 0.46s; }
-.fade-up-5 { animation-delay: 0.58s; }
-
-/* LAYOUT */
 .container      { max-width: 740px;  margin: 0 auto; padding: 0 28px; }
-.container-wide { max-width: 960px;  margin: 0 auto; padding: 0 28px; }
-.container-slim { max-width: 580px;  margin: 0 auto; padding: 0 28px; }
+.container-wide { max-width: 980px;  margin: 0 auto; padding: 0 28px; }
 
 /* TOPBAR */
 .topbar {
-  padding: 16px 28px;
-  border-bottom: 1px solid var(--rule);
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--cream-line);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--cream);
 }
 .topbar-brand {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.75;
+  color: var(--navy);
 }
+.topbar-brand span { color: var(--gold-lo); }
 
-/* HERO */
+/* HERO — navy, the one dark note on the page */
 .hero {
   position: relative;
-  padding: 90px 28px 80px;
+  padding: 96px 28px 84px;
   text-align: center;
+  background: var(--navy);
   overflow: hidden;
 }
-.hero-glow {
+.hero::before {
+  content: '';
   position: absolute;
-  top: 0; left: 50%;
+  top: -20%; left: 50%;
   transform: translateX(-50%);
-  width: 700px; height: 400px;
-  background: radial-gradient(ellipse at center top, rgba(201,168,76,0.08) 0%, transparent 65%);
+  width: 720px; height: 420px;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.16) 0%, transparent 68%);
   pointer-events: none;
 }
-.hero-rule-top {
-  display: flex;
+.eyebrow-rule {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 32px;
-}
-.hero-rule-top span {
-  font-size: 10px;
+  gap: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--gold);
-}
-.hero-rule-top::before,
-.hero-rule-top::after {
-  content: '';
-  flex: 1;
-  max-width: 80px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.4;
+  color: var(--gold-hi);
+  border: 1px solid rgba(201,168,76,0.45);
+  padding: 7px 18px;
+  margin-bottom: 34px;
 }
 
 h1.hero-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 5.5vw, 56px);
-  font-weight: 700;
-  line-height: 1.13;
-  color: var(--cream);
+  font-weight: 800;
+  font-size: clamp(32px, 5.2vw, 50px);
+  line-height: 1.18;
+  color: #FAF6EF;
   max-width: 660px;
   margin: 0 auto 22px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 h1.hero-headline em {
-  font-style: italic;
-  color: var(--gold);
+  font-style: normal;
+  color: var(--gold-hi);
 }
 
 .hero-sub {
-  font-size: 18px;
-  font-weight: 300;
-  color: var(--cream-dim);
-  max-width: 520px;
-  margin: 0 auto 14px;
-  line-height: 1.75;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  color: rgba(250,246,239,0.82);
+  max-width: 540px;
+  margin: 0 auto 16px;
+  line-height: 1.7;
 }
-.hero-sub strong {
-  color: var(--cream);
-  font-weight: 700;
-}
+.hero-sub strong { color: #fff; font-weight: 600; }
 
 .hero-byline {
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--cream-mute);
+  color: rgba(250,246,239,0.55);
   margin-bottom: 44px;
 }
 
-/* CTA BUTTON */
+/* CTA */
 .btn-cta {
   display: inline-block;
   background: var(--gold);
-  color: var(--navy);
-  font-family: 'Lato', sans-serif;
+  color: var(--navy-deep);
   font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 3px;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 18px 44px;
+  padding: 17px 42px;
   border: none;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
-  animation: glowPulse 3s ease-in-out infinite;
 }
-.btn-cta:hover {
-  background: var(--gold-hi);
-  transform: translateY(-2px);
-}
+.btn-cta:hover { background: var(--gold-hi); transform: translateY(-2px); }
 .btn-sub {
   display: block;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  color: var(--cream-mute);
-  margin-top: 12px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  color: rgba(250,246,239,0.55);
+  margin-top: 13px;
 }
+.offer-section .btn-sub, .final-cta .btn-sub { color: var(--ink-mute); }
 
-/* GOLD RULE DIVIDER */
-.gold-divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 200px;
-}
-.gold-divider::before, .gold-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.35;
-}
-.gold-divider-diamond {
-  width: 6px; height: 6px;
-  background: var(--gold);
-  transform: rotate(45deg);
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-/* SECTION BASE */
-section { padding: 80px 0; }
+/* SECTIONS */
+section { padding: 76px 0; }
 
 .section-eyebrow {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-lo);
   margin-bottom: 14px;
 }
 .section-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3.8vw, 38px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--cream);
+  font-weight: 800;
+  font-size: clamp(26px, 3.6vw, 36px);
+  line-height: 1.22;
+  color: var(--navy);
   margin-bottom: 18px;
 }
-.section-heading em { font-style: italic; color: var(--gold); }
+.section-heading em { font-style: normal; color: var(--gold-lo); }
 .section-body {
-  font-size: 16px;
-  color: var(--cream-dim);
-  line-height: 1.85;
+  font-size: 19px;
+  color: var(--ink-soft);
+  line-height: 1.8;
   max-width: 580px;
 }
-.section-body strong { color: var(--cream); }
+.section-body strong { color: var(--ink); }
 
-/* PAIN SECTION */
-.pain-section {
-  border-top: 1px solid rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
+/* PAIN */
+.pain-section { background: var(--cream); border-top: 1px solid var(--cream-line); border-bottom: 1px solid var(--cream-line); }
 .pain-quotes {
   margin-top: 44px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1px;
-  background: rgba(255,255,255,0.04);
+  gap: 18px;
 }
 .pain-quote {
-  background: var(--navy-card);
-  padding: 32px 28px;
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  padding: 30px 26px;
   position: relative;
 }
 .pain-quote::before {
   content: '\201C';
-  font-family: 'Playfair Display', serif;
-  font-size: 56px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 46px;
+  font-weight: 800;
   color: var(--gold);
-  opacity: 0.18;
+  opacity: 0.4;
   position: absolute;
-  top: 14px; left: 20px;
+  top: 8px; left: 18px;
   line-height: 1;
 }
 .pain-quote p {
-  font-family: 'Playfair Display', serif;
+  font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 15px;
-  color: var(--cream-dim);
+  font-size: 16.5px;
+  color: var(--ink-soft);
   line-height: 1.65;
-  padding-top: 22px;
+  padding-top: 24px;
 }
 
 /* WHAT IS IT */
@@ -274,66 +216,71 @@ section { padding: 80px 0; }
 .what-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--rule);
+  gap: 20px;
 }
 @media(max-width: 580px) { .what-grid { grid-template-columns: 1fr; } }
 .what-col {
-  background: var(--navy-card);
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  border-top: 3px solid var(--gold);
   padding: 30px 28px;
 }
+.what-col.not { border-top-color: var(--cream-line); }
 .what-col h4 {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--navy);
   margin-bottom: 18px;
 }
 .what-col ul { list-style: none; }
 .what-col ul li {
-  font-size: 14px;
-  color: var(--cream-dim);
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--cream-line);
   display: flex;
   align-items: flex-start;
   gap: 10px;
   line-height: 1.5;
 }
 .what-col ul li:last-child { border-bottom: none; }
-.what-col ul li .icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; font-size: 12px; }
-.what-col.not ul li .icon { color: var(--cream-mute); }
+.what-col ul li .icon { color: var(--gold-lo); flex-shrink: 0; margin-top: 2px; font-family: 'Montserrat', sans-serif; font-size: 13px; }
+.what-col.not ul li .icon { color: var(--ink-mute); }
 
 /* FRAMEWORKS */
+.frameworks-section { background: var(--navy); }
+.frameworks-section .section-heading { color: #FAF6EF; }
+.frameworks-section .section-heading em { color: var(--gold-hi); }
+.frameworks-section .section-body { color: rgba(250,246,239,0.7); }
+.frameworks-section .section-eyebrow { color: var(--gold-hi); }
 .frameworks-grid {
   margin-top: 44px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(201,168,76,0.18);
 }
 .fw-card {
-  background: var(--navy-card);
+  background: var(--navy-mid);
   padding: 30px 28px;
   transition: background 0.25s;
-  cursor: default;
 }
-.fw-card:hover { background: var(--navy-light); }
+.fw-card:hover { background: #2c4068; }
 .fw-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
   color: var(--gold);
-  opacity: 0.25;
+  opacity: 0.35;
   line-height: 1;
   margin-bottom: 10px;
 }
 .fw-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cream);
+  font-size: 17px;
+  font-weight: 700;
+  color: #FAF6EF;
   margin-bottom: 6px;
 }
 .fw-card .fw-tag {
@@ -341,70 +288,69 @@ section { padding: 80px 0; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--gold-hi);
+  opacity: 0.8;
   margin-bottom: 10px;
 }
 .fw-card p {
-  font-size: 13px;
-  color: var(--cream-mute);
-  line-height: 1.65;
+  font-family: 'EB Garamond', serif;
+  font-size: 15.5px;
+  color: rgba(250,246,239,0.65);
+  line-height: 1.6;
 }
 
 /* HOW IT WORKS */
 .how-steps {
   margin-top: 44px;
   max-width: 600px;
-  counter-reset: steps;
 }
 .how-step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 20px;
   padding: 24px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid var(--cream-line);
   align-items: start;
 }
 .how-step:last-child { border-bottom: none; }
 .how-step-num {
-  width: 40px; height: 40px;
-  border: 1px solid var(--rule);
+  width: 42px; height: 42px;
+  border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy);
   flex-shrink: 0;
   margin-top: 2px;
 }
 .how-step h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--cream);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
   margin-bottom: 5px;
 }
 .how-step p {
-  font-size: 14px;
-  color: var(--cream-mute);
+  font-size: 16.5px;
+  color: var(--ink-soft);
   line-height: 1.7;
 }
-.how-step p strong { color: var(--cream-dim); }
+.how-step p strong { color: var(--ink); }
 .how-step .code-hint {
   display: inline-block;
-  background: var(--navy-light);
-  border: 1px solid var(--rule);
+  background: var(--cream);
+  border: 1px solid var(--cream-line);
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-family: monospace;
-  color: var(--gold);
-  padding: 2px 8px;
+  color: var(--gold-lo);
+  padding: 3px 9px;
   margin-top: 6px;
 }
 
 /* AUTHORITY */
-.authority-section { background: var(--navy-mid); }
+.authority-section { background: var(--cream-card); border-top: 1px solid var(--cream-line); border-bottom: 1px solid var(--cream-line); }
 .authority-inner {
   display: grid;
   grid-template-columns: 110px 1fr;
@@ -415,139 +361,103 @@ section { padding: 80px 0; }
 @media(max-width: 560px) { .authority-inner { grid-template-columns: 1fr; } }
 .authority-badge {
   width: 110px; height: 110px;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--navy);
+  background: var(--navy);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
   flex-shrink: 0;
 }
 .authority-badge .badge-yrs {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold-hi);
   line-height: 1;
 }
 .authority-badge .badge-label {
+  font-family: 'Montserrat', sans-serif;
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.65;
-  text-align: center;
-  line-height: 1.3;
-  padding: 0 8px;
-  margin-top: 4px;
-}
-.authority-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 4px;
-}
-.authority-role {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.75;
-  margin-bottom: 14px;
-}
-.authority-bio {
-  font-size: 15px;
-  color: var(--cream-dim);
-  line-height: 1.8;
-  margin-bottom: 18px;
-}
-.authority-bio strong { color: var(--cream); }
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.pill {
-  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(201,168,76,0.28);
-  padding: 4px 11px;
+  color: rgba(250,246,239,0.7);
+  text-align: center;
+  line-height: 1.3;
+  padding: 0 8px;
+  margin-top: 5px;
+}
+.authority-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.authority-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-lo);
+  margin-bottom: 14px;
+}
+.authority-bio {
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.authority-bio strong { color: var(--ink); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  padding: 5px 12px;
 }
 
-/* OFFER / PRICING */
-.offer-section {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-.offer-card {
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: center;
-}
+/* OFFER */
+.offer-section { background: var(--navy); }
+.offer-card { max-width: 520px; margin: 0 auto; text-align: center; }
 .offer-title {
-  font-family: 'Playfair Display', serif;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-hi);
   margin-bottom: 8px;
 }
 .offer-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4vw, 34px);
-  font-weight: 700;
-  color: var(--cream);
-  line-height: 1.2;
+  font-weight: 800;
+  font-size: clamp(24px, 4vw, 32px);
+  color: #FAF6EF;
+  line-height: 1.25;
   margin-bottom: 32px;
 }
-.price-display {
-  margin-bottom: 32px;
-}
-.price-was {
-  font-size: 13px;
-  color: var(--cream-mute);
-  text-decoration: line-through;
-  margin-bottom: 4px;
-}
+.price-display { margin-bottom: 32px; }
+.price-was { font-family: 'Montserrat', sans-serif; font-size: 13px; color: rgba(250,246,239,0.4); text-decoration: line-through; margin-bottom: 4px; }
 .price-now {
-  font-family: 'Playfair Display', serif;
-  font-size: 72px;
-  font-weight: 700;
-  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  color: var(--gold-hi);
   line-height: 1;
-  background: linear-gradient(90deg, var(--gold-lo), var(--gold), var(--gold-hi), var(--gold));
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
 }
-.price-now sup {
-  font-size: 32px;
-  vertical-align: top;
-  margin-top: 16px;
-  display: inline-block;
-}
-.price-note { font-size: 13px; color: var(--cream-mute); margin-top: 6px; }
+.price-now sup { font-size: 30px; vertical-align: top; margin-top: 15px; display: inline-block; }
+.price-note { font-family: 'Montserrat', sans-serif; font-size: 13px; color: rgba(250,246,239,0.5); margin-top: 8px; }
 
-.includes-list {
-  list-style: none;
-  text-align: left;
-  margin: 0 auto 36px;
-  max-width: 380px;
-}
+.includes-list { list-style: none; text-align: left; margin: 0 auto 36px; max-width: 380px; }
 .includes-list li {
-  font-size: 15px;
-  color: var(--cream-dim);
+  font-size: 16.5px;
+  color: rgba(250,246,239,0.85);
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(250,246,239,0.1);
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -556,7 +466,8 @@ section { padding: 80px 0; }
 .includes-list li:last-child { border-bottom: none; }
 .includes-list li::before {
   content: '✓';
-  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gold-hi);
   font-weight: 700;
   flex-shrink: 0;
   margin-top: 1px;
@@ -565,110 +476,82 @@ section { padding: 80px 0; }
 .guarantee {
   margin-top: 32px;
   padding: 22px 28px;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(250,246,239,0.18);
   text-align: center;
   max-width: 420px;
   margin-left: auto;
   margin-right: auto;
 }
-.guarantee h5 {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 6px;
-}
-.guarantee p {
-  font-size: 13px;
-  color: var(--cream-mute);
-  line-height: 1.65;
-}
+.guarantee h5 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #FAF6EF; margin-bottom: 6px; }
+.guarantee p { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(250,246,239,0.6); line-height: 1.65; }
 
 /* FINAL CTA */
-.final-cta {
-  text-align: center;
-  padding: 80px 28px;
-}
-.final-cta .section-heading { margin-bottom: 10px; }
+.final-cta { text-align: center; padding: 84px 28px; background: var(--cream); }
+.final-cta .section-heading { margin-bottom: 10px; text-align: center; }
 .final-cta .section-body { margin: 0 auto 36px; text-align: center; }
 
 /* FOOTER */
 footer {
-  border-top: 1px solid rgba(255,255,255,0.04);
-  padding: 28px;
+  border-top: 1px solid var(--cream-line);
+  padding: 30px 28px;
   text-align: center;
+  background: var(--cream);
 }
 footer p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: var(--cream-mute);
-  letter-spacing: 0.5px;
-  line-height: 1.8;
+  color: var(--ink-mute);
+  letter-spacing: 0.4px;
+  line-height: 1.9;
 }
-footer a { color: var(--gold); text-decoration: none; opacity: 0.7; }
-footer a:hover { opacity: 1; }
+footer a { color: var(--gold-lo); text-decoration: none; }
+footer a:hover { opacity: 0.75; }
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <header class="topbar">
-  <div class="topbar-brand">Light Based Leadership &nbsp;·&nbsp; Proverbs &amp; Kings</div>
+  <div class="topbar-brand">Light Based Leadership &nbsp;<span>·</span>&nbsp; Proverbs &amp; Kings</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-glow"></div>
   <div class="container">
+    <div class="eyebrow-rule">New Resource</div>
 
-    <div class="hero-rule-top fade-up fade-up-1">
-      <span>New Resource</span>
-    </div>
-
-    <h1 class="hero-headline fade-up fade-up-2">
-      30 Years of Proverbs.<br>
+    <h1 class="hero-headline">
+      35+ Years of Proverbs.<br>
       Now Available as Your<br>
       <em>Personal AI Coach.</em>
     </h1>
 
-    <p class="hero-sub fade-up fade-up-3">
+    <p class="hero-sub">
       Eight proven frameworks. Activated by a single prompt.<br>
       <strong>Biblical wisdom applied to your real decision — in minutes.</strong>
     </p>
 
-    <p class="hero-byline fade-up fade-up-4">From Steve Lewey &nbsp;·&nbsp; Maxwell Leadership Founding Partner &nbsp;·&nbsp; 30 Years in the Marketplace</p>
+    <p class="hero-byline">From Steve Lewey &nbsp;·&nbsp; Maxwell Leadership Founding Partner &nbsp;·&nbsp; 35+ Years in the Marketplace</p>
 
-    <div class="fade-up fade-up-5">
+    <div>
       <a href="https://stevelewey.gumroad.com/l/ydobmk" class="btn-cta">Get the Protocol — $47</a>
       <span class="btn-sub">One-time purchase &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; Use it today</span>
     </div>
-
   </div>
 </section>
 
-<!-- PAIN -->
 <section class="pain-section">
   <div class="container-wide">
     <div class="section-eyebrow">Sound Familiar?</div>
     <h2 class="section-heading">You know the right principles.<br>Applying them is another matter.</h2>
     <p class="section-body">You've read Proverbs. You understand the wisdom. But when the hard decision lands on your desk at 9am on a Tuesday — the partnership conflict, the hiring mistake, the financial pivot — general knowledge doesn't always cut through. You need someone to think with you. Fast.</p>
     <div class="pain-quotes">
-      <div class="pain-quote">
-        <p>"I know I should seek counsel — but who do I call at 7am when I need to think this through before the meeting?"</p>
-      </div>
-      <div class="pain-quote">
-        <p>"I've been around the block enough to know the right principles. I just need help seeing which one applies right now."</p>
-      </div>
-      <div class="pain-quote">
-        <p>"Good coaching is expensive. I can't justify $300/hour every time I need a sounding board."</p>
-      </div>
-      <div class="pain-quote">
-        <p>"I keep circling the same problems. I need a structured way to get out of my own head."</p>
-      </div>
+      <div class="pain-quote"><p>"I know I should seek counsel — but who do I call at 7am when I need to think this through before the meeting?"</p></div>
+      <div class="pain-quote"><p>"I've been around the block enough to know the right principles. I just need help seeing which one applies right now."</p></div>
+      <div class="pain-quote"><p>"Good coaching is expensive. I can't justify $300/hour every time I need a sounding board."</p></div>
+      <div class="pain-quote"><p>"I keep circling the same problems. I need a structured way to get out of my own head."</p></div>
     </div>
   </div>
 </section>
 
-<!-- WHAT IS IT -->
 <section>
   <div class="container">
     <div class="section-eyebrow">What You're Getting</div>
@@ -703,133 +586,53 @@ footer a:hover { opacity: 1; }
   </div>
 </section>
 
-<!-- FRAMEWORKS -->
-<section style="background: var(--navy-mid); padding: 80px 0;">
+<section class="frameworks-section">
   <div class="container-wide">
     <div class="section-eyebrow">The Eight Frameworks</div>
     <h2 class="section-heading">Eight lenses. Every real challenge<br>falls into one of them.</h2>
     <p class="section-body" style="margin-bottom: 0;">The protocol automatically identifies which framework fits your situation. You don't have to know — you just describe what you're facing.</p>
     <div class="frameworks-grid">
-      <div class="fw-card">
-        <div class="fw-num">01</div>
-        <div class="fw-tag">Decision-Making</div>
-        <h4>The Integrity Grid</h4>
-        <p>Five-question framework that surfaces the right decision when you're facing a real choice — and exposes misalignment you'd otherwise miss.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">02</div>
-        <div class="fw-tag">Life Balance</div>
-        <h4>The Seven Keys to Success</h4>
-        <p>A Proverbs-based inventory across the seven domains that actually determine whether a life is working — with a 30-day focus plan.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">03</div>
-        <div class="fw-tag">Communication</div>
-        <h4>Speech Audit</h4>
-        <p>Identifies which of the seven destructive speech patterns is costing you trust, influence, or relationships — and gives you a replacement strategy.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">04</div>
-        <div class="fw-tag">Disappointment</div>
-        <h4>Expectation Framework</h4>
-        <p>Traces the root of frustration back to its source — the expectation you didn't know you had — and rebuilds a realistic foundation going forward.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">05</div>
-        <div class="fw-tag">Calling &amp; Purpose</div>
-        <h4>Tilling Your Land</h4>
-        <p>Cuts through the comparison trap and helps you identify what's uniquely yours to build — and what season you're actually in.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">06</div>
-        <div class="fw-tag">Resources</div>
-        <h4>Building Your House</h4>
-        <p>Evaluates your five critical "houses" — Faith, Family, Finance, Fitness, Fulfillment — and identifies where rebalancing is overdue.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">07</div>
-        <div class="fw-tag">Procrastination</div>
-        <h4>Plow Now Principle</h4>
-        <p>Cuts through analysis paralysis by exposing what you're really waiting for — and forces a specific, time-bound commitment to act.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-num">08</div>
-        <div class="fw-tag">Perspective</div>
-        <h4>Gratitude as Medicine</h4>
-        <p>A structured reset when discouragement or victim thinking has taken hold — grounded in the Proverbs principle that a merry heart does good like medicine.</p>
-      </div>
+      <div class="fw-card"><div class="fw-num">01</div><div class="fw-tag">Decision-Making</div><h4>The Integrity Grid</h4><p>Five-question framework that surfaces the right decision when you're facing a real choice — and exposes misalignment you'd otherwise miss.</p></div>
+      <div class="fw-card"><div class="fw-num">02</div><div class="fw-tag">Life Balance</div><h4>The Seven Keys to Success</h4><p>A Proverbs-based inventory across the seven domains that actually determine whether a life is working — with a 30-day focus plan.</p></div>
+      <div class="fw-card"><div class="fw-num">03</div><div class="fw-tag">Communication</div><h4>Speech Audit</h4><p>Identifies which of the seven destructive speech patterns is costing you trust, influence, or relationships — and gives you a replacement strategy.</p></div>
+      <div class="fw-card"><div class="fw-num">04</div><div class="fw-tag">Disappointment</div><h4>Expectation Framework</h4><p>Traces the root of frustration back to its source — the expectation you didn't know you had — and rebuilds a realistic foundation going forward.</p></div>
+      <div class="fw-card"><div class="fw-num">05</div><div class="fw-tag">Calling &amp; Purpose</div><h4>Tilling Your Land</h4><p>Cuts through the comparison trap and helps you identify what's uniquely yours to build — and what season you're actually in.</p></div>
+      <div class="fw-card"><div class="fw-num">06</div><div class="fw-tag">Resources</div><h4>Building Your House</h4><p>Evaluates your five critical "houses" — Faith, Family, Finance, Fitness, Fulfillment — and identifies where rebalancing is overdue.</p></div>
+      <div class="fw-card"><div class="fw-num">07</div><div class="fw-tag">Procrastination</div><h4>Plow Now Principle</h4><p>Cuts through analysis paralysis by exposing what you're really waiting for — and forces a specific, time-bound commitment to act.</p></div>
+      <div class="fw-card"><div class="fw-num">08</div><div class="fw-tag">Perspective</div><h4>Gratitude as Medicine</h4><p>A structured reset when discouragement or victim thinking has taken hold — grounded in the Proverbs principle that a merry heart does good like medicine.</p></div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section>
   <div class="container">
     <div class="section-eyebrow">How It Works</div>
     <h2 class="section-heading">Up and running<br>in under five minutes.</h2>
     <p class="section-body">No app. No account. No setup complexity. The protocol runs inside Claude AI — which you can access free at claude.ai.</p>
     <div class="how-steps">
-      <div class="how-step">
-        <div class="how-step-num">1</div>
-        <div>
-          <h4>Create your free Claude account</h4>
-          <p>Go to <strong>claude.ai</strong> and create a free account. No credit card required. Takes 60 seconds.</p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">2</div>
-        <div>
-          <h4>Open the protocol document</h4>
-          <p>Your purchase gives you immediate access to the protocol — a PDF with the full prompt system and clear instructions.</p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">3</div>
-        <div>
-          <h4>Paste the prompt into Claude</h4>
-          <p>Copy the coaching protocol text and paste it into a new Claude conversation. This activates the AI coach.<br>
-          <span class="code-hint">Takes about 15 seconds</span></p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">4</div>
-        <div>
-          <h4>Describe your situation</h4>
-          <p>Tell the AI what you're facing — a decision, a conflict, a pattern you can't break, a goal you can't start. <strong>Be specific. Be honest.</strong> The coaching quality tracks directly with your candor.</p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">5</div>
-        <div>
-          <h4>Answer the questions. Make a commitment.</h4>
-          <p>The AI coach will ask follow-up questions, identify the right framework, and walk you through it until you reach a specific, accountable next step. Every session ends with a commitment.</p>
-        </div>
-      </div>
+      <div class="how-step"><div class="how-step-num">1</div><div><h4>Create your free Claude account</h4><p>Go to <strong>claude.ai</strong> and create a free account. No credit card required. Takes 60 seconds.</p></div></div>
+      <div class="how-step"><div class="how-step-num">2</div><div><h4>Open the protocol document</h4><p>Your purchase gives you immediate access to the protocol — a PDF with the full prompt system and clear instructions.</p></div></div>
+      <div class="how-step"><div class="how-step-num">3</div><div><h4>Paste the prompt into Claude</h4><p>Copy the coaching protocol text and paste it into a new Claude conversation. This activates the AI coach.<br><span class="code-hint">Takes about 15 seconds</span></p></div></div>
+      <div class="how-step"><div class="how-step-num">4</div><div><h4>Describe your situation</h4><p>Tell the AI what you're facing — a decision, a conflict, a pattern you can't break, a goal you can't start. <strong>Be specific. Be honest.</strong> The coaching quality tracks directly with your candor.</p></div></div>
+      <div class="how-step"><div class="how-step-num">5</div><div><h4>Answer the questions. Make a commitment.</h4><p>The AI coach will ask follow-up questions, identify the right framework, and walk you through it until you reach a specific, accountable next step. Every session ends with a commitment.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- AUTHORITY -->
 <section class="authority-section">
   <div class="container">
     <div class="section-eyebrow">Built By</div>
     <div class="authority-inner">
       <div class="authority-badge">
-        <div class="badge-yrs">30</div>
+        <div class="badge-yrs">35+</div>
         <div class="badge-label">Years in the Marketplace</div>
       </div>
       <div>
         <div class="authority-name">Steve Lewey</div>
         <div class="authority-role">Founder, Light Based Leadership &amp; Proverbs &amp; Kings</div>
-        <p class="authority-bio">
-          This protocol wasn't built in a seminary library. It was forged across <strong>30 years of monthly Proverbs study</strong> alongside a career in marketplace leadership — real decisions, real stakes, real failures, and real wins.
-        </p>
-        <p class="authority-bio">
-          Steve serves as a <strong>Maxwell Leadership Founding Partner</strong>, a <strong>marketplace chaplain</strong>, and a <strong>CBMC facilitator</strong> in Charlotte, NC — which means these frameworks have been pressure-tested with business owners, executives, and professionals navigating the same challenges you face.
-        </p>
-        <p class="authority-bio" style="margin-bottom: 16px;">
-          The eight frameworks in this protocol are the same ones he uses in his cohorts, peer advisory groups, and one-on-one coaching engagements. Now they're available to you — any time, at a fraction of the cost.
-        </p>
+        <p class="authority-bio">This protocol wasn't built in a seminary library. It was forged across <strong>35+ years of monthly Proverbs study</strong> alongside a career in marketplace leadership — real decisions, real stakes, real failures, and real wins.</p>
+        <p class="authority-bio">Steve serves as a <strong>Maxwell Leadership Founding Partner</strong>, a <strong>marketplace chaplain</strong>, and a <strong>CBMC facilitator</strong> in Charlotte, NC — which means these frameworks have been pressure-tested with business owners, executives, and professionals navigating the same challenges you face.</p>
+        <p class="authority-bio" style="margin-bottom: 16px;">The eight frameworks in this protocol are the same ones he uses in his cohorts, peer advisory groups, and one-on-one coaching engagements. Now they're available to you — any time, at a fraction of the cost.</p>
         <div class="pills">
           <span class="pill">Maxwell Leadership</span>
           <span class="pill">Marketplace Chaplain</span>
@@ -841,19 +644,15 @@ footer a:hover { opacity: 1; }
   </div>
 </section>
 
-<!-- OFFER -->
 <section class="offer-section" id="offer">
   <div class="container">
     <div class="offer-card">
-
       <div class="offer-title">Your Investment</div>
       <div class="offer-name">The Proverbs AI<br>Coaching Protocol</div>
-
       <div class="price-display">
         <div class="price-now"><sup>$</sup>47</div>
         <div class="price-note">One-time &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; Yours to keep</div>
       </div>
-
       <ul class="includes-list">
         <li>The full 8-framework coaching prompt system</li>
         <li>Step-by-step setup instructions (PDF)</li>
@@ -862,31 +661,26 @@ footer a:hover { opacity: 1; }
         <li>Use it as often as you need, for any challenge</li>
         <li>Lifetime access — no expiration</li>
       </ul>
-
       <a href="https://stevelewey.gumroad.com/l/ydobmk" class="btn-cta">Get Instant Access — $47</a>
       <span class="btn-sub">Secure checkout &nbsp;·&nbsp; Delivered immediately</span>
-
       <div class="guarantee">
         <h5>Simple Guarantee</h5>
         <p>Use the protocol for a real decision. If you don't find it valuable, email within 7 days for a full refund. No questions, no friction.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
     <div class="section-eyebrow">The Bottom Line</div>
-    <h2 class="section-heading" style="text-align: center; margin: 0 auto 14px;">You already know Proverbs is practical.<br><em>This makes it personal.</em></h2>
-    <p class="section-body" style="text-align: center; margin: 0 auto 36px;">At $47, a single clear decision — one conflict resolved, one procrastination broken, one calling clarified — pays for this many times over. The question isn't whether the wisdom is there. It's whether you'll use it.</p>
+    <h2 class="section-heading">You already know Proverbs is practical.<br><em>This makes it personal.</em></h2>
+    <p class="section-body">At $47, a single clear decision — one conflict resolved, one procrastination broken, one calling clarified — pays for this many times over. The question isn't whether the wisdom is there. It's whether you'll use it.</p>
     <a href="https://stevelewey.gumroad.com/l/ydobmk" class="btn-cta">Get the Protocol — $47</a>
     <span class="btn-sub">One-time purchase &nbsp;·&nbsp; Use it today &nbsp;·&nbsp; 7-day guarantee</span>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>
     &copy; 2025 Light Based Leadership &nbsp;·&nbsp; Steve Lewey &nbsp;·&nbsp; Charlotte, NC<br>
